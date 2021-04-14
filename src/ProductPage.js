@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {db} from './firebase'
 import { useParams} from 'react-router-dom'
 
-function ProductPage() {
+function ProductPage({setCartItems}) {
 
     let { productId} = useParams();
 
@@ -33,16 +33,36 @@ function ProductPage() {
     }
 
     const addToCart = () => {
-        localStorage.setItem("products", JSON.stringify([{product}, {product}]));
-        let tempItems = JSON.parse(localStorage.getItem('products'));
-        console.log(tempItems[0].product.name);
-        console.log(tempItems[1].product.name);
+
+        let tempProduct = {
+            id: productId,
+            name: product.name,
+            image: product.image,
+            price: product.price,
+            description: product.description,
+            count: 1
+        }
+        // localStorage.clear();
+        if(localStorage.getItem("products") == null) {
+            localStorage.setItem("products", JSON.stringify([tempProduct]));
+        } else {
+            let tempProducts = [];
+            tempProducts = JSON.parse(localStorage.getItem("products"));
+            let tempIndex = tempProducts.findIndex(item => item.id == tempProduct.id );
+            if(tempIndex != -1){
+                tempProducts[tempIndex].count++;
+                localStorage.removeItem("products");
+                localStorage.setItem("products", JSON.stringify(tempProducts));
+                setCartItems(tempProducts);
+            } else {
+                tempProducts.push(tempProduct);
+                localStorage.removeItem("products");
+                localStorage.setItem("products", JSON.stringify(tempProducts));
+                setCartItems(tempProducts);
+            }
+        }
     }
 
-    // const getMainPhoto = (url) => {
-    //     setMainPhoto(url);
-
-    // }
 
     useEffect(() => {
         getProduct();

@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import CartTotal from './CartTotal'
 import CartItems from './CartItems'
 
-function Cart() {
+function Cart({cartItems, setCartItems}) {
     return (
         <Container>
-            <CartItems />
+            <CartItems cartItems={cartItems} setCartItems={setCartItems}/>
             <CartTotal />
         </Container>
     )

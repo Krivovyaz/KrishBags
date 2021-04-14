@@ -1,29 +1,56 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function CartItem({id, CartItem}) {
-    
+function CartItem({item, setCartItems}) {
+
+    const deleteItem = (e) => {
+        e.preventDefault();
+        let tempProducts = [];
+        tempProducts = JSON.parse(localStorage.getItem("products"));
+        let tempIndex = tempProducts.findIndex(product => product.id == item.id );
+        tempProducts.splice(tempIndex, 1);
+        localStorage.removeItem("products");
+        localStorage.setItem("products", JSON.stringify(tempProducts));
+        setCartItems(tempProducts);
+    }
+
+    let options = [];
+
+    for( let i=1; i < Math.max(item.count+1, 20); i++) {
+        options.push(<option value={i}> Qty: {i}</option>)
+    }
+
+    const changeQuantity = (newQuantity) => {
+        let tempProducts = [];
+        tempProducts = JSON.parse(localStorage.getItem("products"));
+        let tempIndex = tempProducts.findIndex(product => product.id == item.id );
+        tempProducts[tempIndex].count = newQuantity;
+        localStorage.removeItem("products");
+        localStorage.setItem("products", JSON.stringify(tempProducts));
+        console.log(tempProducts);
+        setCartItems(tempProducts);
+    }
     return (
         <Container>
             <ImageContainer>
-                <img src="https://i.ibb.co/jHHjFgd/p14.jpg" />
+                <img src={item.image} />
             </ImageContainer>
 
             <CartItemInfo>
                 <CartItemInfoTop>
-                    <h2>Miranda</h2>
+                    <h2>{item.name}</h2>
                 </CartItemInfoTop>
                 <CartItemInfoBottom>
                     <CartItemQuantityContainer>
                         <select
-                            // value={item.quantity}
-                            // onChange={(e) => changeQuantity(e.target.value)}
+                            value={item.count}
+                            onChange={(e) => changeQuantity(e.target.value)}
                         >
-                            {/* {options} */}
+                            {options}
                         </select>
                     </CartItemQuantityContainer>
                     <CartItemDeleterContainer
-                        // onClick={deleteItem}
+                        onClick={deleteItem}
                     >
                         Delete
                     </CartItemDeleterContainer>
@@ -31,7 +58,7 @@ function CartItem({id, CartItem}) {
             </CartItemInfo>
 
             <CartItemPrice>
-                $100
+                ${item.price}
             </CartItemPrice>
         </Container>
     )

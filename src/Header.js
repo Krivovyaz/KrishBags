@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -6,6 +6,27 @@ import Navbar from './Navbar'
 import { Link } from 'react-router-dom'
 
 function Header() {
+
+    const getCartAmountOfItems = () => {
+        let products = JSON.parse(localStorage.getItem("products"));
+        let tempCount = 0;
+        if(products != undefined) {
+            products.forEach((item) => {
+                tempCount += +item.count;
+            } )
+        } else {
+            tempCount = 0;
+        }
+        return tempCount;
+    }
+
+    
+      
+      
+    // setInterval(getCartAmountOfItems(), 60);
+
+
+
     return (
         <Container>
             <AdditionalInformation>
@@ -17,7 +38,7 @@ function Header() {
                     <Link to="/Cart">
                     <ShoppingCartIcon />
                     </Link>
-                    <CartCount>14</CartCount>
+                    <CartCount>{getCartAmountOfItems()}</CartCount>
                 </HeaderOptionCart>
             </AdditionalInformation>
             <HeaderMainInformation>

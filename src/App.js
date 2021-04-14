@@ -20,6 +20,7 @@ function App() {
 
   const [products, setProducts] = useState([]);
   const [collectionName, setCollectionName] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   const getCollectionName = (name) => {
     setCollectionName({
@@ -40,9 +41,17 @@ function App() {
       })
   }
 
+  const getCartItems = () => {
+    let tempCartItems = [];
+    tempCartItems = JSON.parse(localStorage.getItem("products"));
+    setCartItems(tempCartItems);
+  }
+  
+
   useEffect(() => {
       getProducts();
       console.log(collectionName.name);
+      getCartItems()
   }, []) 
   
   return (
@@ -84,11 +93,11 @@ function App() {
           </Route>
 
           <Route path="/ProductPage/:productId">
-            <ProductPage collectionName={collectionName}/>
+            <ProductPage collectionName={collectionName} setCartItems={setCartItems}/>
           </Route>
 
           <Route path="/Cart">
-            <Cart />
+            <Cart cartItems={cartItems} setCartItems={setCartItems}/>
           </Route>
 
           <Route path="/">
