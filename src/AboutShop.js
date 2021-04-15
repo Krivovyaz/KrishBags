@@ -18,23 +18,21 @@ function AboutShop() {
 export default AboutShop
 
 const Container = styled.div`
-
+    margin-bottom: 70px;
 `
 const About = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-text-align: center;
-// background-color: rgb(241, 219, 196);
-padding-bottom: 80px;
-// opacity: 0.7;
-color: white;
-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 80px;
+    color: white;
 
-h2 {
-font-size: 40px;
-font-weight: 500;
-}
+
+    h2 {
+        font-size: 40px;
+        font-weight: 500;
+    }
 `
 
 const FirstPartAbout = styled.span`
@@ -44,7 +42,7 @@ const FirstPartAbout = styled.span`
 `
 const SecondPartAbout = styled.span`
     margin: auto;
-    width: 700px;
+    max-width: 700px;
     font-size: 17px;
     margin-top: 26px;
     line-height: 30px;
@@ -52,5 +50,5 @@ const SecondPartAbout = styled.span`
 `
 
 const MainPhoto = styled.img`
-width: 100%;
+    width: 100%;
 `

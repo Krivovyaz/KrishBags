@@ -30,5 +30,5 @@ const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    // margin-top: -10%;
+    margin-bottom: 70px;
 `

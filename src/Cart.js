@@ -7,7 +7,7 @@ function Cart({cartItems, setCartItems}) {
     return (
         <Container>
             <CartItems cartItems={cartItems} setCartItems={setCartItems}/>
-            <CartTotal />
+            <CartTotal cartItems={cartItems} />
         </Container>
     )
 }
@@ -16,4 +16,7 @@ export default Cart
 
 const Container = styled.div`
     display: flex;
+     @media (max-width: 768px) {
+         flex-direction: column;
+     }
 `

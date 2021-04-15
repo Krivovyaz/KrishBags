@@ -7,20 +7,34 @@ import 'owl.carousel/dist/assets/owl.carousel.min.css'
 import 'owl.carousel/dist/assets/owl.theme.default.min.css'
 
 function MainCarousel({products}) {
+
+    const options = {
+        autoplay: true,
+        items: 2,
+        dots: false,
+        loop: true,
+        center: true,
+        smartSpeed: 1200,
+        autoplayTimeout: 4000,
+        responsive: {
+            100: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            1200: {
+                items: 2
+            }
+        }
+    }
     return (
         <Container>
             <OwlCarousel
                 className="owl-theme"
-                autoplay="true"
-                items={2}
-                dots = {false}
-                loop="true"
-                center="true"
-                smartSpeed={1200}
-                autoplayTimeout={4000}
+                {...options}
     
             >
-                {/* // add map */}
                 <div className="item">
                     <img src={FirstCarouselPhoto1}></img>
                 </div>
@@ -46,4 +60,9 @@ function MainCarousel({products}) {
 
 export default MainCarousel
 
-const Container = styled.div``
+const Container = styled.div`
+    img {
+        object-fit: contain;
+        max-height: 600px;
+    }
+`

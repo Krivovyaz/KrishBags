@@ -17,12 +17,14 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 55vh;
+    margin-top: 10%;
+
     h2 {
         font-size: 35px;
         font-weight: 400;
         margin-bottom:10px;
     }
-    height: 55vh;
 `
 
 const MobilePhoneNumber = styled.span`
@@ -32,6 +34,6 @@ const MobilePhoneNumber = styled.span`
 `
 
 const Email = styled.span`
-font-size: 20px;
+    font-size: 20px;
     font-weight: 300;
-    `
+`

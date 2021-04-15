@@ -23,17 +23,17 @@ function FooterComponent() {
 export default FooterComponent
 
 const Container = styled.div`
-background-color: black;
--webkit-mask-image: linear-gradient(to bottom,transparent 0%,black 44%);
-display: flex;
-align-items: center;
-justify-content: center;
-height: 70px;
-width: 100%;
+    background-color: black;
+    -webkit-mask-image: linear-gradient(to bottom,transparent 0%,black 44%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
 `
 
 const SocialMediaIcons = styled.div`
     color: white;
-    
-    
 `

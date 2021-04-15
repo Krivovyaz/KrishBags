@@ -20,20 +20,9 @@ function Header() {
         return tempCount;
     }
 
-    
-      
-      
-    // setInterval(getCartAmountOfItems(), 60);
-
-
-
     return (
         <Container>
             <AdditionalInformation>
-                <HeaderUserContainer>
-                    <AccountCircleIcon />
-                    <UserName>Dima Krivovyaz</UserName>
-                </HeaderUserContainer>
                 <HeaderOptionCart>
                     <Link to="/Cart">
                     <ShoppingCartIcon />
@@ -43,7 +32,6 @@ function Header() {
             </AdditionalInformation>
             <HeaderMainInformation>
                 <ShopTitle><Link to = "/">KRISH</Link></ShopTitle>
-                {/* <hr/> */}
                 <Navbar />
             </HeaderMainInformation>
         </Container>
@@ -59,6 +47,9 @@ const Container = styled.div`
     padding: 5px 27px;
     background: linear-gradient( to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     max-height: 270px;
+    @media (max-width: 768px) {
+        max-height: 400px;
+    }
 `
 const AdditionalInformation = styled.div`
     display: flex;
@@ -66,16 +57,6 @@ const AdditionalInformation = styled.div`
     align-items: center;
     margin-top: 13px;
     margin-right: 5px;
-`
-
-const HeaderUserContainer = styled.div`
-    display: flex;
-    margin-right: 20px;
-    cursor: pointer;
-`
-
-const UserName = styled.div`
-    margin-left: 5px;
 `
 
 const HeaderOptionCart = styled.div`

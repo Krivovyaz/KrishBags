@@ -15,34 +15,14 @@ function SecondCarousel({products, getCollectionName} ) {
 
     return (
         <Container>
-            {/* <OwlCarousel
-                classname="owl-theme"
-                items={4}
-                loop={true}
-                margin={70}
-                nav={true}
-            >
-                {
-                    products.map((data) => (
-                        <div>
-                            <Product 
-                                title={data.product.name}
-                                image={data.product.image}
-                                price={data.product.price}
-                                description={data.product.description}
-                            />
-                        </div>
-                    ))
-                }
-            </OwlCarousel> */}
              {
-                    products.map((data) => (
-                        <div>
-                            <Product
-                            data={data}
-                            />
-                        </div>
-                    ))
+                products.map((data) => (
+                    <div>
+                        <Product
+                        data={data}
+                        />
+                    </div>
+                ))
                 }
         </Container>
     )

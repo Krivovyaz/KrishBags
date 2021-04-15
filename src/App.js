@@ -22,11 +22,13 @@ function App() {
   const [collectionName, setCollectionName] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
+
   const getCollectionName = (name) => {
     setCollectionName({
       name: name
     })
   }
+
 
   const getProducts = () => {
       db.collection('products').onSnapshot((snapshot) => {

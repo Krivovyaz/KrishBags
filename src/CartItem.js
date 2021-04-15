@@ -39,6 +39,9 @@ function CartItem({item, setCartItems}) {
             <CartItemInfo>
                 <CartItemInfoTop>
                     <h2>{item.name}</h2>
+                    <CartItemPrice>
+                        ${item.price}
+                    </CartItemPrice>
                 </CartItemInfoTop>
                 <CartItemInfoBottom>
                     <CartItemQuantityContainer>
@@ -56,10 +59,6 @@ function CartItem({item, setCartItems}) {
                     </CartItemDeleterContainer>
                 </CartItemInfoBottom>
             </CartItemInfo>
-
-            <CartItemPrice>
-                ${item.price}
-            </CartItemPrice>
         </Container>
     )
 }
@@ -73,11 +72,10 @@ const Container = styled.div`
 
 `
 const ImageContainer = styled.div`
-    witdth: 180px;
-    height: 180px;
+    height: 300px;
     flex-shrink: 0;
     flex-grow: 0;
-    margin-right: 16px;
+    margin-right: 26px;
     img {
         object-fit: contain;
         height: 100%;
@@ -90,9 +88,18 @@ const CartItemInfo = styled.div`
 `
 
 const CartItemInfoTop = styled.div`
-    color: #007185;
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
     h2 {
-        font-size: 18px;
+        font-size: 28px;
+        font-weight: 400;
+        margin: 0;
+
+        @media (max-width: 400px) {
+            font-size: 23px;
+        }
     }
 `
 
@@ -117,7 +124,7 @@ const CartItemQuantityContainer = styled.div`
 `
 
 const CartItemDeleterContainer = styled.div`
-color: #007185;
+color: white;
 margin-left: 16px;
 cursor: pointer;
 `
@@ -126,4 +133,7 @@ const CartItemPrice = styled.div`
     font-size: 18px;
     font-weight: 700;
     margin-left: 16px;
+    @media (max-width: 400px) {
+        font-size: 14px;
+    }
 `

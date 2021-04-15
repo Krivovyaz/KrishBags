@@ -6,7 +6,6 @@ import { useParams} from 'react-router-dom'
 function ProductPage({setCartItems}) {
 
     let { productId} = useParams();
-
     const [product, setProduct] = useState([]);
     const [additionalPhotos, setAdditionalPhotos] = useState([])
     const [mainPhoto, setMainPhoto] = useState([]);
@@ -42,7 +41,6 @@ function ProductPage({setCartItems}) {
             description: product.description,
             count: 1
         }
-        // localStorage.clear();
         if(localStorage.getItem("products") == null) {
             localStorage.setItem("products", JSON.stringify([tempProduct]));
         } else {
@@ -62,7 +60,6 @@ function ProductPage({setCartItems}) {
             }
         }
     }
-
 
     useEffect(() => {
         getProduct();
@@ -112,20 +109,29 @@ export default ProductPage
 const Container = styled.div`
     display: flex;
 
+    @media (max-width: 880px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
 `
 
-// const Title = styled.span`
-// font-size: 34px;
-// font-weight: 300;
-// padding: 10px;
-// `
-
 const Photos = styled.div`
-height: 700px;
-display: flex;
-margin-left: 10%;
-margin-right: 60px;
-
+    height: 700px;
+    display: flex;
+    margin-left: 10%;
+    margin-right: 60px;
+    @media (max-width: 980px) {
+        margin-left: 3%;  
+        height: 600px;
+    }
+    @media (max-width: 880px) {
+        justify-content: center;
+    }
+    @media (max-width: 400px) {
+        height: 350px;
+        margin: 0 auto;
+    }
 `
 
 const MainPhoto = styled.img`
@@ -150,21 +156,25 @@ const AdditionalPhotos = styled.div`
 `
 
 const InformationSection= styled.div`
-height: 700px;
-width: 100%;
-display: flex;
-flex-direction: column;
-padding-top: 20px;
-margin-right: 60px;
-hr {
-    height: 1px;
+    height: 700px;
     width: 100%;
-    margin-bottom: 7px;
-    color: white;
-    background-color: white;
-    border: none;
-    margin-left: 0;
-}
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    margin-right: 60px;
+    hr {
+        height: 1px;
+        width: 100%;
+        margin-bottom: 7px;
+        color: white;
+        background-color: white;
+        border: none;
+        margin-left: 0;
+    }
+    @media (max-width: 880px) {
+        width: 90%;
+        margin-right: 0;
+    }
 `
 const NameAndPrice = styled.div`
     display: flex;
@@ -180,8 +190,8 @@ const Name = styled.span`
 `
 
 const Price = styled.span`
-font-size: 25px;
-font-weight: 400;
+    font-size: 25px;
+    font-weight: 400;
 `
 
 const AdditionalInformation = styled.div`
@@ -208,13 +218,18 @@ const ActionSection = styled.div`
     margin-top: 30px;
     display: flex;
     justify-content: flex-end;
+
+    @media (max-width: 400px) {
+        justify-content: center;
+    }
 `
 
 const AddToCartButton = styled.button`
-border: 1px solid orange;
-border-radius: 6px;
-padding: 10px 20px;
-font-size: 17px;
-font-weight: 300;
-cursor: pointer;
+    border: 1px solid orange;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-weight: 300;
+    cursor: pointer;
+    background-color: #ddb347
 `

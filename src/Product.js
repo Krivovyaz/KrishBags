@@ -28,24 +28,23 @@ function Product({data}) {
 export default Product
 
 const Container = styled.div`
-display: flex;
-flex-direction: column;
-padding: 20px;
-margin: 10px;
-align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 10px;
+    align-items: center;
 `
 
 const Image = styled.img`
-max-height: 500px;
-object-fit: contain;
-border-radius: 5px;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 5px;
 `
 
 const Title = styled.span`
-font-size: 34px;
-font-weight: 300;
-padding: 10px;
-
+    font-size: 34px;
+    font-weight: 300;
+    padding: 10px;
 `
 
 const ActionSection = styled.div`
@@ -53,9 +52,10 @@ const ActionSection = styled.div`
     font-weight: 100;
     display: flex;
     align-items: center;
+    cursor: pointer;
+
     span{
         margin-right: 5px;
         margin-top: -6px;
     }
-    cursor: pointer;
 `

@@ -47,11 +47,11 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 70px;
 
 `
 
 const MainText = styled.div`
-    // mask-image: linear-gradient(to top, transparent 10%, black 90%);
     width: 60%;
     text-align: center;
     display: flex;
@@ -59,17 +59,36 @@ const MainText = styled.div`
     align-items: center;
     height: 80vh;
     margin-bottom: -120px;
-    margin-top: 120px;    
+    padding-top: 120px;    
+
+    @media (max-width: 770px) {
+        font-size: 40px;
+        width: 90%;
+    }
+    @media (max-width: 1100px) {
+        font-size: 50px;
+        width: 90%;
+    }
 `
 const TitleFirstLevel = styled.span`
     font-size: 80px;
-    margin-top: -10%;
+
+    @media (max-width: 770px) {
+        font-size: 45px;
+    }
     
 `
 
 const TitleSecondLevel = styled.span`
     font-size: 30px;
     margin-top: 116px;
+
+    @media (max-width: 770px) {
+        font-size: 25px;
+    }
+    @media (max-width: 400px) {
+        font-size: 20px;
+    }
 `
 
 const Content = styled.div`

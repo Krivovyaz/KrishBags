@@ -5,7 +5,6 @@ import {useHistory} from 'react-router-dom'
 function productForCatalog({data}) {
 
     const history = useHistory();
-
     const pathIdentifier = "product";
 
     const goToProduct = (id) => {
@@ -13,6 +12,7 @@ function productForCatalog({data}) {
             history.push(`/productPage/${id}`)
         }
     }
+
     return (
         <Container>
             <Image src={data.product.image}></Image>
@@ -30,8 +30,7 @@ export default productForCatalog
 const Container = styled.div``
 
 const Title = styled.span`
-font-size: 34px;
-font-weight: 300;
-padding: 10px;
-
+    font-size: 34px;
+    font-weight: 300;
+    padding: 10px;
 `

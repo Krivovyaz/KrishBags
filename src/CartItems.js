@@ -8,12 +8,12 @@ function CartItems({cartItems, setCartItems}) {
         <Container>
             <ItemsContainer>
             {
-                    cartItems.map((item) => (
-                        <CartItem
-                            item={item}
-                            setCartItems={setCartItems}
-                        />
-                    ))
+                cartItems.map((item) => (
+                    <CartItem
+                        item={item}
+                        setCartItems={setCartItems}
+                    />
+                ))
                 }
             </ItemsContainer>
 
@@ -24,7 +24,8 @@ function CartItems({cartItems, setCartItems}) {
 export default CartItems
 
 const Container = styled.div`
-flex: 0.8;
+    flex: 0.7;
+    margin: 20px 20px 0 30px;
 `
 
 const ItemsContainer = styled.div``

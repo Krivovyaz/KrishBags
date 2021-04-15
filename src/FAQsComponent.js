@@ -44,7 +44,7 @@ const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 55vh;
+    height: 100%;
 `
 
 const Question = styled.div`
