@@ -3,18 +3,18 @@ import styled from 'styled-components'
 import CartItem from './CartItem'
 
 function CartItems({cartItems, setCartItems}) {
-    console.log(cartItems);
     return (
         <Container>
             <ItemsContainer>
             {
+                
                 cartItems.map((item) => (
                     <CartItem
                         item={item}
                         setCartItems={setCartItems}
                     />
                 ))
-                }
+            }
             </ItemsContainer>
 
         </Container>

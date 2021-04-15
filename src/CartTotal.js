@@ -14,7 +14,7 @@ function CartTotal({cartItems}) {
     const getTotalPrice = () => {
         let tempCount = 0;
             cartItems.forEach((item) => {
-            tempCount += +item.price;
+            tempCount += +(item.price * item.count);
             });
         return tempCount;
     }

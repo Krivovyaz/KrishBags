@@ -6,8 +6,16 @@ import CartItems from './CartItems'
 function Cart({cartItems, setCartItems}) {
     return (
         <Container>
-            <CartItems cartItems={cartItems} setCartItems={setCartItems}/>
-            <CartTotal cartItems={cartItems} />
+            {
+                cartItems ? 
+                    <CartItems cartItems={cartItems} setCartItems={setCartItems}/>:
+                    <span>Your cart is Empty</span>
+            }
+            {
+                 cartItems ? 
+                 <CartTotal cartItems={cartItems} /> :
+                 <span></span>
+            }
         </Container>
     )
 }
